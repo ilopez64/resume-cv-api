@@ -13,7 +13,7 @@ data "archive_file" "zip" {
 provider "aws" {
   region = var.aws_region
 }
-
+ 
 # Define a Lambda function.
 #
 # The handler is the name of the executable for go1.x runtime.

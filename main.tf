@@ -6,8 +6,11 @@ variable "aws_region" {
 
 data "archive_file" "zip" {
   type = "zip"
-  source_file = "resume-cv-api"
   output_path = "${path.module}/lambda-function-payload.zip"
+  source {
+    content = "placeholder"
+    filename = "placeholder.txt"
+  }
 }
 
 provider "aws" {
@@ -20,7 +23,7 @@ provider "aws" {
 #
 # The handler is the name of the executable for go1.x runtime.
 resource "aws_lambda_function" "resume-cv-api" {
-  filename = data.archive_file.zip.output_path
+  filename = data.archive_file.placeholder.output_path
   function_name = "resume-cv-api"
   handler       = "resume-cv-api"
   role          = aws_iam_role.resume-cv-api.arn

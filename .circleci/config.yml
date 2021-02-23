@@ -6,7 +6,7 @@ jobs:
   test:
     docker:
       - image: circleci/golang:1.14
-    working_directory: /go/src/github.com/cujarrett/resume-api
+    working_directory: /go/src/github.com/ilopez64/resume-cv-api
     steps:
       - checkout
       - run:

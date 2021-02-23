@@ -2,7 +2,7 @@
   "basics": {
     "name": "Irving Lopez Serna",
     "label": "Backend Developer",
-    "picture": "https://irvinglopez.xyz/img/header.jpg",
+    "picture": "",
     "email": "",
     "phone": "",
     "website": "https://irvinglopez.xyz/",
@@ -85,7 +85,7 @@
       "position": "Software Developer",
       "info": [
         "A partner and I created a very basic version of Bittorrent where files can easily be shared.",
-        "Project written completely in Python"
+        "Project written completely in Python."
       ]
     }
   ],
@@ -180,14 +180,14 @@
     },
     {
       "name": "Kubernetes",
-      "level": "Pro",
+      "level": "Intermediate",
       "keywords": [
         "K8s"
       ]
     },
     {
       "name": "Docker",
-      "level": "Intermediate",
+      "level": "Pro",
       "keywords": [
         "Containers"
       ]
@@ -206,7 +206,7 @@
       "keywords": [
         "SDLC",
         "OSS",
-         "CI/CD"
+        "CI/CD"
       ]
     },
     {

@@ -6,15 +6,14 @@
 package main
 
 import (
-	"bytes"
 	"encoding/json"
-	"log"
 	"net/http"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
+// Resume ...
 type Resume struct {
 	Basics       Basics      `json:"basics"`
 	Education    []Education `json:"education"`
@@ -28,6 +27,7 @@ type Resume struct {
 	Interests    []Interest  `json:"interests"`
 }
 
+// Basics ...
 type Basics struct {
 	Name     string    `json:"name"`
 	Label    string    `json:"label"`
@@ -40,6 +40,7 @@ type Basics struct {
 	Profiles []Profile `json:"profiles"`
 }
 
+// Location ...
 type Location struct {
 	Address     string `json:"address"`
 	PostalCode  string `json:"postalCode"`
@@ -48,12 +49,14 @@ type Location struct {
 	Region      string `json:"region"`
 }
 
+// Profile ...
 type Profile struct {
 	Network  string `json:"network"`
 	Username string `json:"username"`
 	URL      string `json:"url"`
 }
 
+// Education ...
 type Education struct {
 	Institution string   `json:"institution"`
 	Area        string   `json:"area"`
@@ -64,28 +67,33 @@ type Education struct {
 	Courses     []string `json:"courses"`
 }
 
+// Interest ...
 type Interest struct {
 	Name     string   `json:"name"`
 	Keywords []string `json:"keywords"`
 }
 
+// Language ...
 type Language struct {
 	Language string `json:"language"`
 	Fluency  string `json:"fluency"`
 }
 
+// Project ...
 type Project struct {
 	Name     string   `json:"name"`
 	Position string   `json:"position"`
 	Info     []string `json:"info"`
 }
 
+// Skill ...
 type Skill struct {
 	Name     string   `json:"name"`
 	Level    string   `json:"level"`
 	Keywords []string `json:"keywords"`
 }
 
+// Work ...
 type Work struct {
 	Company    string   `json:"company"`
 	Position   string   `json:"position"`
@@ -96,6 +104,7 @@ type Work struct {
 	Highlights []string `json:"highlights"`
 }
 
+// Volunteer ...
 type Volunteer struct {
 	Organization string   `json:"organization"`
 	Position     string   `json:"position"`
@@ -246,12 +255,6 @@ func getResume() *Resume {
 				Name:  "IBMCloud",
 				Level: "Pro",
 				Keywords: []string{
-					"SPA", "Web", "Front End",
-				},
-			}, {
-				Name:  "Angular",
-				Level: "Intermediate",
-				Keywords: []string{
 					"Cloud Foundry", "Cloud Object Storage", "Cloudant",
 				},
 			}, {
@@ -268,19 +271,19 @@ func getResume() *Resume {
 				},
 			}, {
 				Name:  "NOSQL",
-				Level: "Pro",
+				Level: "Intermediate",
 				Keywords: []string{
 					"MongoDB",
 				},
 			}, {
 				Name:  "Kubernetes",
-				Level: "Pro",
+				Level: "Intermediate",
 				Keywords: []string{
 					"K8s",
 				},
 			}, {
 				Name:  "Docker",
-				Level: "Intermediate",
+				Level: "Pro",
 				Keywords: []string{
 					"Containers",
 				},
@@ -336,7 +339,7 @@ func getResume() *Resume {
 			{
 				Name: "Dance",
 				Keywords: []string{
-					"Hip Hop", "Breakdance", "Salse",
+					"Hip Hop", "Breakdance", "Salsa",
 				},
 			}, {
 				Name: "Photography",
@@ -348,21 +351,13 @@ func getResume() *Resume {
 	}
 }
 
+// Formatting the response JSON
 func (input Resume) formatResume() string {
-	bytesBuffer := new(bytes.Buffer)
-	json.NewEncoder(bytesBuffer).Encode(&input)
-
-	responseBytes := bytesBuffer.Bytes()
-
-	var prettyJSON bytes.Buffer
-	error := json.Indent(&prettyJSON, responseBytes, "", "  ")
-	if error != nil {
-		log.Println("JSON parse error: ", error)
-	}
-	formattedResume := string(prettyJSON.Bytes())
-	return formattedResume
+	formattedResume, _ := json.MarshalIndent(input, "", "  ")
+	return string(formattedResume)
 }
 
+// Serving the API using AWS API Gateway and Lambda
 func handleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
 	resume := getResume()
 	formattedResume := resume.formatResume()
@@ -375,6 +370,7 @@ func handleRequest(request events.APIGatewayProxyRequest) (events.APIGatewayProx
 	return response, nil
 }
 
+// Main function to handle requests by calling handleRequest
 func main() {
 	lambda.Start(handleRequest)
 }

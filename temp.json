@@ -1,0 +1,163 @@
+{
+    "basics": {
+      "name": "Irving Lopez Serna",
+      "label": "Backend Developer",
+      "picture": "",
+      "email": "",
+      "phone": "",
+      "website": "https://irvinglopez.xyz/",
+      "summary": "Backend Developer. I'm a passionate and detail oriented full stack software developer based in Yorktown Heights, New York. I enjoy turning problems into solutions that make people smile. I enjoy continuous learning and exploring new technologies. When I'm not coding at home or work, I enjoy time with my family.",
+      "location": {
+        "address": "",
+        "postalCode": "",
+        "city": "Yorktown Heights",
+        "countryCode": "US",
+        "region": "New York"
+      },
+      "profiles": [{
+        "network": "Linkedin",
+        "username": "Irving Lopez Serna",
+        "url": "https://www.linkedin.com/in/donirv64"
+      }, {
+        "network": "GitHub",
+        "username": "ilopez64",
+        "url": "https://github.com/ilopez64"
+      }]
+    },
+    "education": [{
+      "institution": "Manhattan College",
+      "area": "Computer Science",
+      "studyType": "Masters",
+      "startDate": "2019-08-26",
+      "endDate": "2020-05-13",
+      "gpa": "4.0/4.0",
+      "courses": []
+    }, {
+      "institution": "Manhattan College",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2015-08-26",
+      "endDate": "2019-05-17",
+      "gpa": "3.0/4.0",
+      "courses": []
+    }],
+    "work": [{
+      "company": "Manhattan College ITS",
+      "position": "ITS Operations",
+      "website": "https://www.manhattan.edu",
+      "startDate": "2015-08-26",
+      "endDate": "2016-05-13",
+      "summary": "As a member of the Operations group in the ITS Department, I aided in the management of all campus computers.",
+      "highlights": ["Handled issues college students and faculty faced regarding computers and network issues.", "Updated software on college computers.", "Performed weekly check ups on all campus smart labs."]
+    }],
+    "projects": [{
+      "name": "Positifeedy",
+      "position": "iOS Developer",
+      "info": ["App which gives users a feed of mental health and mindfulness content. Meant to be a supplement for mental health therapy.", "Utilizes Google Firebase for sign-in, data storage, and notifications.", "Winner of 2017 Manhattan College Business Innovation Contest."]
+    }, {
+      "name": "Online Shop",
+      "position": "Backend API Developer",
+      "info": ["Created backend RESTFUL API for online shop with the Django framework using a MySQL database.", "Used the Heroku platform for deployment."]
+    }, {
+      "name": "Toy Bittorrent",
+      "position": "Software Developer",
+      "info": ["A partner and I created a very basic version of Bittorrent where files can easily be shared.", "Project written completely in Python."]
+    }],
+    "volunteer": [{
+      "organization": "Alliance for Safe Kids",
+      "position": "Social Media Manager/Community Organizer",
+      "website": "https://allianceforsafekids.org/",
+      "startDate": "2014-05-10",
+      "endDate": "2016-08-02",
+      "summary": "Alliance for Safe Kids (ASK) is a local non-profit that promotes a drug free like to children and teens.",
+      "highlights": ["Managed the social media presence for ASK.", "Ran a community event involving over 50 small businesses."]
+    }],
+    "awards": [],
+    "publications": [],
+    "skills": [{
+      "name": "Python",
+      "level": "Pro",
+      "keywords": []
+    }, {
+      "name": "Django",
+      "level": "Pro",
+      "keywords": ["REST API"]
+    }, {
+      "name": "JavaScript",
+      "level": "Intermediate",
+      "keywords": ["ECMAScript", "ES6", "Node.js", "Web", "Front End"]
+    }, {
+      "name": "React",
+      "level": "Intermediate",
+      "keywords": ["SPA", "Web", "Front End"]
+    }, {
+      "name": "AWS",
+      "level": "Intermediate",
+      "keywords": ["Cloud", "Lambda", "S3"]
+    }, {
+      "name": "IBMCloud",
+      "level": "Pro",
+      "keywords": ["Cloud Foundry", "Cloud Object Storage", "Cloudant"]
+    }, {
+      "name": "Go",
+      "level": "Intermediate",
+      "keywords": ["Golang"]
+    }, {
+      "name": "SQL",
+      "level": "Pro",
+      "keywords": ["PostgreSQL", "MySQL"]
+    }, {
+      "name": "NOSQL",
+      "level": "Intermediate",
+      "keywords": ["MongoDB"]
+    }, {
+      "name": "Kubernetes",
+      "level": "Intermediate",
+      "keywords": ["K8s"]
+    }, {
+      "name": "Docker",
+      "level": "Pro",
+      "keywords": ["Containers"]
+    }, {
+      "name": "Linux",
+      "level": "Intermediate",
+      "keywords": ["Bash", "Shell"]
+    }, {
+      "name": "GitHub",
+      "level": "Expert",
+      "keywords": ["SDLC", "OSS", "CI/CD"]
+    }, {
+      "name": "GitLab",
+      "level": "Expert",
+      "keywords": ["SDLC", "OSS", "CI/CD"]
+    }, {
+      "name": "Pipelines",
+      "level": "Expert",
+      "keywords": ["DevOps"]
+    }, {
+      "name": "Java",
+      "level": "Intermediate",
+      "keywords": []
+    }, {
+      "name": "C++",
+      "level": "Intermediate",
+      "keywords": []
+    }],
+    "languages": [{
+      "language": "English",
+      "fluency": "Native speaker"
+    }, {
+      "language": "Spanish",
+      "fluency": "Native speaker"
+    }, {
+      "language": "French",
+      "fluency": "Basic proficiency"
+    }],
+    "interests": [{
+      "name": "Dance",
+      "keywords": ["Hip Hop", "Breakdance", "Salsa"]
+    }, {
+      "name": "Photography",
+      "keywords": ["Weddings", "Landscape", "Senior"]
+    }]
+  }

@@ -6,7 +6,9 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
+	"log"
 	"net/http"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -67,32 +69,6 @@ type Education struct {
 	Courses     []string `json:"courses"`
 }
 
-// Interest ...
-type Interest struct {
-	Name     string   `json:"name"`
-	Keywords []string `json:"keywords"`
-}
-
-// Language ...
-type Language struct {
-	Language string `json:"language"`
-	Fluency  string `json:"fluency"`
-}
-
-// Project ...
-type Project struct {
-	Name     string   `json:"name"`
-	Position string   `json:"position"`
-	Info     []string `json:"info"`
-}
-
-// Skill ...
-type Skill struct {
-	Name     string   `json:"name"`
-	Level    string   `json:"level"`
-	Keywords []string `json:"keywords"`
-}
-
 // Work ...
 type Work struct {
 	Company    string   `json:"company"`
@@ -104,6 +80,13 @@ type Work struct {
 	Highlights []string `json:"highlights"`
 }
 
+// Project ...
+type Project struct {
+	Name     string   `json:"name"`
+	Position string   `json:"position"`
+	Info     []string `json:"info"`
+}
+
 // Volunteer ...
 type Volunteer struct {
 	Organization string   `json:"organization"`
@@ -113,6 +96,25 @@ type Volunteer struct {
 	EndDate      string   `json:"endDate"`
 	Summary      string   `json:"summary"`
 	Highlights   []string `json:"highlights"`
+}
+
+// Skill ...
+type Skill struct {
+	Name     string   `json:"name"`
+	Level    string   `json:"level"`
+	Keywords []string `json:"keywords"`
+}
+
+// Language ...
+type Language struct {
+	Language string `json:"language"`
+	Fluency  string `json:"fluency"`
+}
+
+// Interest ...
+type Interest struct {
+	Name     string   `json:"name"`
+	Keywords []string `json:"keywords"`
 }
 
 func getResume() *Resume {
@@ -353,8 +355,18 @@ func getResume() *Resume {
 
 // Formatting the response JSON
 func (input Resume) formatResume() string {
-	formattedResume, _ := json.MarshalIndent(input, "", "  ")
-	return string(formattedResume)
+	bytesBuffer := new(bytes.Buffer)
+	json.NewEncoder(bytesBuffer).Encode(&input)
+
+	responseBytes := bytesBuffer.Bytes()
+
+	var prettyJSON bytes.Buffer
+	error := json.Indent(&prettyJSON, responseBytes, "", "  ")
+	if error != nil {
+		log.Println("JSON parse error: ", error)
+	}
+	formattedResume := string(prettyJSON.Bytes())
+	return formattedResume
 }
 
 // Serving the API using AWS API Gateway and Lambda

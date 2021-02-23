@@ -29,7 +29,7 @@ override.tf.json
 # example: *tfplan*
 
 # Build
-resume-api
+resume-cv-api
 build
 
 # Terraform

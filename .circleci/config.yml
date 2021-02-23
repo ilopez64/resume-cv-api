@@ -67,11 +67,7 @@ workflows:
             - test
       - deploy:
           requires:
-<<<<<<< HEAD
             - build
           filters:
             branches:
               only: main
-=======
-            - build
->>>>>>> b57c1e2dfd70045b0859a34aa52a3af8ee618388

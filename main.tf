@@ -15,7 +15,7 @@ provider "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
 }
- 
+
 # Define a Lambda function.
 #
 # The handler is the name of the executable for go1.x runtime.

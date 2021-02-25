@@ -8,4 +8,4 @@ test:
 	go test -v ./...
 
 compile:
-	go build -o resume main.go
+	go build -o resume-api main.go

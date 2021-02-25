@@ -33,11 +33,11 @@ jobs:
           command: mkdir build
       - run:
           name: Zip executable
-          command: zip build/resume.zip -q resume
+          command: zip build/resume-api.zip -q resume-api
       - persist_to_workspace:
           root: .
           paths:
-            - build/resume.zip
+            - build/resume-api.zip
 
   deploy:
     docker:
@@ -54,7 +54,7 @@ jobs:
           command: |
             aws lambda update-function-code \
               --function-name=resume \
-              --zip-file=fileb://build/resume.zip 1> /dev/null \
+              --zip-file=fileb://build/resume-api.zip 1> /dev/null \
               --region=us-east-1
 
 workflows:

@@ -20,23 +20,28 @@ To test, run the following in a terminal:
 
 ## Code walkthrough
 
-Go was used for the main implementation of this project, as seen in main.go. The AWK SDK are needed
+Go was used for the main implementation of this project. The AWK SDK are needed
 To build this project so those are collected with the go get command in the terminal.
 
-A struct was created based off the structure of my resume.
+`main.go`
 
-The function getResume() was then created to fill the Resume struct with the contents of my real resume. 
+* Creates a struct based off the structure of my resume.
 
-The function formatResume() receives a Resume struct and returns the content of that struct in a JSON format
+* getResume() fills the Resume struct with the contents of my real resume. 
 
-The function handleRequest() use AWS Gateway to handle requests from AWS Lambda
+* formatResume() receives a Resume struct and returns the content of that struct in a JSON format
 
-The project is then ran in the main() function by running handleRequest()
+* handleRequest() uses AWS Gateway to handle requests from AWS Lambda
+
+* project ran by main() by calling handleRequest()
 
 Terraform was used to set up the infrastructure of my project. The main.tf file creates both the
 AWS Lambda and AWS Gateway infrastructure.
 
-For CI/CD, Circle CI was includes. The Circle CI config file defines the test, build, and deploy workflows. A main_test file was created but has yet to fully be implemented; it will always pass. The build workflow installs dependencies, builds the executable according to an included Makefile, and compresses it into a zip file. The deploy workflow deploys the zip file to AWS Lambda and returns a URL endpoint at which the API can be called from. 
+For CI/CD, Circle CI was included. The Circle CI config file defines the test, build, and deploy workflows. 
+* test: A main_test file was created but has yet to fully be implemented; it will always pass. 
+* build: installs dependencies, builds the executable according to an included Makefile, and compresses it into a zip file. 
+* deploy: deploys the zip file to AWS Lambda and returns a URL endpoint at which the API can be called from. 
 
 Every update to the project repository triggers terraform plan to update the infrastructure, runs test, and deploys the app to AWS. 
 

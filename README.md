@@ -35,10 +35,16 @@ To build this project so those are collected with the go get command in the term
 
 * project ran by main() by calling handleRequest()
 
-Terraform was used to set up the infrastructure of my project. The main.tf file creates both the
-AWS Lambda and AWS Gateway infrastructure.
+Terraform was used to set up the infrastructure of my project. 
+
+`main.tf` 
+
+* creates both AWS Lambda and AWS Gateway infrastructure used to run the app.
 
 For CI/CD, Circle CI was included. The Circle CI config file defines the test, build, and deploy workflows. 
+
+`.circleci/config.yml`
+
 * test: A main_test file was created but has yet to fully be implemented; it will always pass. 
 * build: installs dependencies, builds the executable according to an included Makefile, and compresses it into a zip file. 
 * deploy: deploys the zip file to AWS Lambda and returns a URL endpoint at which the API can be called from. 
